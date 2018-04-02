@@ -1,4 +1,4 @@
-package security;
+package com.security;
 
 import java.util.Collection;
 import java.util.List;
@@ -7,9 +7,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.StringUtils;
-import domain.User;
+import com.domain.User;
 
-public class CustomUserDetails extends domain.User implements UserDetails {	
+public class CustomUserDetails extends com.domain.User implements UserDetails {
 	
 	private static final long serialVersionUID = 1L;
 	private List<String> userRoles;

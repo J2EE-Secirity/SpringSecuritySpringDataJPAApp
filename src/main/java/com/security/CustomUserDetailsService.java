@@ -1,4 +1,4 @@
-package security;
+package com.security;
 
 import java.util.List;
 
@@ -8,9 +8,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
-import domain.User;
-import domain.UserRepository;
-import domain.UserRolesRepository;
+import com.domain.User;
+import com.repository.UserRepository;
+import com.repository.UserRolesRepository;
 
 @Service("customUserDetailsService")
 public class CustomUserDetailsService implements UserDetailsService{

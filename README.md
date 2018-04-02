@@ -1,6 +1,6 @@
 # Spring Security 4 for Spring MVC using Spring Data JPA and Spring Boot
 
-* `Step by Step Guide` http://www.programming-free.com/2016/01/spring-security-spring-data-jpa.html
+* `Step by Step Guide` http://www.programming-free.com/2016/01/spring-com.security-spring-data-jpa.html
 * `Video Tutorial` https://youtu.be/XO-OdIXNU_o
 * **(** [Spring Boot Hello World Example – JSP](https://www.mkyong.com/spring-boot/spring-boot-hello-world-example-jsp)  **)**
 * **(** [Encoding of properties files](https://www.jetbrains.com/help/idea/properties-files.html) **)**  `Ctrl+Alt+S` >> `Editor` and `File Encodings` >> *Transparent native-to-ascii conversion* and *Default encoding for properties files - select the encoding that will be used*...
@@ -46,13 +46,17 @@ java -jar target/spring-boot-web-jsp-1.0.war
 
 ![uvwUxE](uvwUxE.png)
 
-`priya`:`priya`
+###Закрытый доступ для пользователя с правами `ROLE_USER`:
+
+(`priya`:`priya`)
 
 ![8i5vBO](8i5vBO.png)
 
 ![ruTW6O](ruTW6O.png)
 
-`naveen`:`naveen`
+###Открытый доступ для пользователя с правами `ROLE_ADMIN`:
+
+(`naveen`:`naveen`)
 
 ![FmxEwN](FmxEwN.png)
 
