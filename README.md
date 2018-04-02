@@ -38,7 +38,7 @@ mvn spring-boot:run
 или
 ```bash
 mvn clean package
-java -jar target/spring-boot-web-jsp-1.0.war
+java -jar target/SpringSecuritySpringDataJpaApp-0.0.1-SNAPSHOT.war
 ```
 
 [http://localhost:8081](http://localhost:8081) >> `priya`:`priya` или `naveen`:`naveen`
