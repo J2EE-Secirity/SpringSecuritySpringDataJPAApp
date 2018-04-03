@@ -19,6 +19,10 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
     @Autowired
     private UserRolesRepository userRolesRepository;
 
+    /**
+     * User #1:  (priya|priya) - ограниченный доступ
+     * User #2:  (naveen|naveen) - открытый доступ
+     */
     @Override
     @Transactional
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
