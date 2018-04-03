@@ -20,7 +20,7 @@
 3. создаем свою реализацию для сервиса `UserDetailsService` (а именно, метод `loadUserByUsername`) - чтобы потом передать эти данные в Spring-Security...
 4. **(** предварительно настраиваем дрступ к ресурсам в Spring-Security `WebMvcConfigurerAdapter`, а именно метод `addViewControllers()`... **)**
 5. и передаем данные пользователя в менеджер Spring-Security (`WebSecurityConfigurerAdapter`), а именно в методе `configAuthentication()`...
-6. **(** ...в этом примере нет REST-контроллеров, здесь используются статические веб-ресурсы... **)**
+6. **(** ...в этом примере нет REST-контроллеров, здесь используются статические веб-ресурсы... - по умолчанию JSP-файлы **)**
 
 ![user_roles](user_roles.png)
 
