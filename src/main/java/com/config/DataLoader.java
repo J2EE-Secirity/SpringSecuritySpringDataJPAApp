@@ -4,6 +4,8 @@ import com.domain.User;
 import com.domain.UserRole;
 import com.repository.UserRepository;
 import com.repository.UserRolesRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -12,6 +14,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Component
 public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
+
+    private static final Logger logger = LoggerFactory.getLogger(DataLoader.class);
+    private boolean alreadySetup = false;
 
     @Autowired
     private UserRepository userRepository;
@@ -26,6 +31,10 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
     @Override
     @Transactional
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
+        if (alreadySetup) {
+            return;
+        }
+
         userRepository.save(
                 getNewUser(1l, "priya", "$2a$04$CO93CT2ObgMiSnMAWwoBkeFObJlMYi/wzzOnPlsTP44r7qVq0Jln2", "abc@abc.com", 1));
         userRepository.save(
@@ -34,6 +43,9 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
         userRolesRepository.save(getNewUserRole(101l, "ROLE_USER", 1l));
         userRolesRepository.save(getNewUserRole(102l, "ROLE_ADMIN", 2l));
         userRolesRepository.save(getNewUserRole(103l, "ROLE_USER", 2l));
+
+        logger.info("The sample data has been generated");
+        alreadySetup = true;
     }
 
     @Transactional
