@@ -20,10 +20,8 @@ public class CustomUserDetails extends com.domain.User implements UserDetails {
 		this.userRoles=userRoles;
 	}
 	
-	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		
 		String roles=StringUtils.collectionToCommaDelimitedString(userRoles);			
 		return AuthorityUtils.commaSeparatedStringToAuthorityList(roles);
 	}
@@ -42,16 +40,15 @@ public class CustomUserDetails extends com.domain.User implements UserDetails {
 	public boolean isCredentialsNonExpired() {
 		return true;
 	}
+
 	@Override
 	public boolean isEnabled() {
 		return true;
 	}
 
-
 	@Override
 	public String getUsername() {
 		return super.getUserName();
 	}
-
 
 }

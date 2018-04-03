@@ -19,16 +19,16 @@ import com.security.CustomUserDetailsService;
 @ComponentScan(basePackageClasses = CustomUserDetailsService.class)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
- @Autowired 
- private UserDetailsService userDetailsService;
+    @Autowired
+    private UserDetailsService userDetailsService;
  
- @Autowired
- public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {    
-	 auth.userDetailsService(userDetailsService).passwordEncoder(passwordencoder());
- } 
- 
+    @Autowired
+    public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+                .userDetailsService(userDetailsService)
+                .passwordEncoder( passwordencoder() );
+    }
 
- 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
@@ -49,4 +49,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordencoder(){
         return new BCryptPasswordEncoder();
     }
+
 }
