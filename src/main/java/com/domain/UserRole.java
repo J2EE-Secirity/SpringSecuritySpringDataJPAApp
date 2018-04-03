@@ -3,18 +3,18 @@ package com.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name="user_roles")
+@Table(name = "user_roles")
 public class UserRole {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)    
-    @Column(name="id")
+    @Column(name = "id")
 	private Long id;
 	
-	@Column(name="user_id")
+	@Column(name = "user_id")
 	private Long userId;
 	
-	@Column(name="role")
+	@Column(name = "role")
 	private String role;	
 
 	public String getRole() {

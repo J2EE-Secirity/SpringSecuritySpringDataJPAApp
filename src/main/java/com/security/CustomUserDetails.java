@@ -9,28 +9,44 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.StringUtils;
 import com.domain.User;
 
-public class CustomUserDetails extends com.domain.User implements UserDetails {
-	
-	private static final long serialVersionUID = 1L;
-	private List<String> userRoles;
-	
+public class CustomUserDetails implements UserDetails {
 
-	public CustomUserDetails(User user,List<String> userRoles){
-		super(user);
-		this.userRoles=userRoles;
+	private static final long serialVersionUID = 1L;
+
+	private User user;
+	private List<String> userRoles;
+
+	public CustomUserDetails() {
 	}
-	
+
+	public CustomUserDetails(User user, List<String> userRoles) {
+		this.user = user;
+		this.userRoles = userRoles;
+	}
+
+	@Override
+	public String getUsername() {
+		return user.getUserName();
+	}
+
+	@Override
+	public String getPassword() {
+		return user.getPassword();
+	}
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		String roles=StringUtils.collectionToCommaDelimitedString(userRoles);			
-		return AuthorityUtils.commaSeparatedStringToAuthorityList(roles);
+		String roles = StringUtils.collectionToCommaDelimitedString(userRoles);
+		List<GrantedAuthority> grantedAuthorities = AuthorityUtils.commaSeparatedStringToAuthorityList(roles);
+		return grantedAuthorities;
 	}
 
+	// TODO Auto-generated method stub...:
 	@Override
 	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
 		return true;
 	}
+
 	@Override
 	public boolean isAccountNonLocked() {
 		return true;
@@ -44,11 +60,6 @@ public class CustomUserDetails extends com.domain.User implements UserDetails {
 	@Override
 	public boolean isEnabled() {
 		return true;
-	}
-
-	@Override
-	public String getUsername() {
-		return super.getUserName();
 	}
 
 }

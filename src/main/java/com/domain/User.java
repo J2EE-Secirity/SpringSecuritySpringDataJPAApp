@@ -13,7 +13,7 @@ public class User implements Serializable {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)    
-    @Column(name="id")
+    @Column(name = "id")
     private Long id;
 
 	@Column(name = "username")
@@ -25,21 +25,20 @@ public class User implements Serializable {
 	@Column(name = "email")
     private String email;
     
-	@Column(name ="enabled")
+	@Column(name = "enabled")
 	private int enabled;
 	
-	public User(){
-		
+	public User() {
 	}
-	
+
 	public User(User user) {
 	        this.id = user.id;
 	        this.userName = user.userName;
 	        this.email = user.email;       
 	        this.password = user.password;
-	        this.enabled=user.enabled;        
+	        this.enabled = user.enabled;
 	}
-	
+
 	public int getEnabled() {
 		return enabled;
 	}

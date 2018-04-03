@@ -1,3 +1,11 @@
+
+# Гарячие клавиши:
+
+* `CTRL+ALT+F` - автоматическая подстановка типа переменной!
+* `ALT+F7` - поиск всех мест где используется класс, метод...
+* `CTRL+ALT+F7` - поиск и переход в место где используется класс, метод...
+
+
 # Spring Security 4 for Spring MVC using Spring Data JPA and Spring Boot
 
 * `Step by Step Guide` http://www.programming-free.com/2016/01/spring-com.security-spring-data-jpa.html
@@ -5,7 +13,13 @@
 * **(** [Spring Boot Hello World Example – JSP](https://www.mkyong.com/spring-boot/spring-boot-hello-world-example-jsp)  **)**
 * **(** [Encoding of properties files](https://www.jetbrains.com/help/idea/properties-files.html) **)**  `Ctrl+Alt+S` >> `Editor` and `File Encodings` >> *Transparent native-to-ascii conversion* and *Default encoding for properties files - select the encoding that will be used*...
 
-**Этот пример демонстрирует загрузку данных пользователя для Spring-Security из базы данных** 
+**Этот пример демонстрирует загрузку данных пользователя для Spring-Security из базы данных**
+Здесь важны 3-основных момента:
+0. (как обычно, реализуем `Entity` и `Repository` чтобы доставать данные пользователя из базы + создаем 2-таблички где будут хранится данные пользователя и его роли...)
+1. создаем свою реализацию для сущности `UserDetails` - чтобы получать данные пользователя из своей базы...
+2. создаем свою реализацию для сервиса `UserDetailsService` (а именно, метод `loadUserByUsername`) - чтобы потом передать эти данные в Spring-Security...
+3. (предварительно настраиваем дрступ к ресурсам в Spring-Security `WebMvcConfigurerAdapter`, а именно метод `addViewControllers()`...)
+4. и передаем данные пользователя в менеджер Spring-Security (`WebSecurityConfigurerAdapter`), а именно в методе `configAuthentication()`...
 
 ![user_roles](user_roles.png)
 
